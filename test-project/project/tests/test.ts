@@ -15,7 +15,12 @@ class AnotherClass {
     name: string = "AnotherClass";
 }
 
+function mydecorator(target: any, key: string) {
+    Reflect.defineMetadata("design:mydecorator", "mydecorator", target, key);
+}
+
 class MyClass {
+    @mydecorator
     aaa: string = "MyClass";
     another: AnotherClass = new AnotherClass();
     ary: string[] = ["a", "b", "c"];
@@ -176,7 +181,7 @@ it("member function types", ()=>{
     expect(wappring1FuncType).toEqual( [ { name: 'T', typetype: 'not class' } ]);
 
     const wappring1RetType = Reflect.getMetadata("design:returnttype", instance, "wappring1");
-    expect(wappring1RetType).toEqual({name: 'unknown'});
+    expect(wappring1RetType).toEqual({name: 'unknown', "typetype": "unknown"});
 
     const qualifiedNameFuncType = Reflect.getMetadata("design:paramttypes", instance, "qualifiedNameFunc");
     expect(qualifiedNameFuncType).toHaveLength(1);
