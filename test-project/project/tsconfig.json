@@ -108,6 +108,7 @@
       "plugins": [
         {
           "transform": "../../src/main.ts",
+          "onlyDecorated": false
         }
       ]
     },
