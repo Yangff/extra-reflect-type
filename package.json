@@ -1,0 +1,36 @@
+{
+  "name": "extra-reflect-type",
+  "description": "A TypeScript transformer plugin that adds extra type information to decorators",
+  "author": "Yangff",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yangff/extra-reflect-type.git"
+  },
+  "readme": "README.md",
+  "version": "1.0.0",
+  "main": "./dist/cjs/main.js",
+  "module": "./dist/esm/main.js",
+  "types": "./dist/esm/main.d.ts",
+  "exports": {
+    "import": "./dist/esm/main.js",
+    "require": "./dist/cjs/main.js"
+  },
+  "scripts": {
+    "build:esm": "tsc --project tsconfig.json",
+    "build:cjs": "tsc --project tsconfig-cjs.json",
+    "build": "npm run build:esm && npm run build:cjs",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "test": "cd test-project/project && npm install && npm run prepare && npm test"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "ts-patch": "^3.1.2",
+    "typescript": "^5.4.3",
+    "typescript-eslint": "^7.3.1"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.2.1"
+  }
+}
