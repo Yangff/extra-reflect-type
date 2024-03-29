@@ -29,8 +29,6 @@ jobs:
       with:
         scheme: semver
         increment: patch
-    - name: Tag current commit
-      run: git tag -a v${{ steps.version.outputs.version }} -m "Release v${{ steps.version.outputs.version }}"
     - name: Update package.json
       run: npm version ${{ steps.version.outputs.version }} --allow-same-version
     - name: Create a Release
