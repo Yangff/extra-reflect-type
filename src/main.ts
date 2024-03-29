@@ -2,7 +2,7 @@ import * as ts from 'typescript';
 import { type TransformerExtras, type PluginConfig } from 'ts-patch';
 
 export default function (program: ts.Program, pluginConfig: PluginConfig, { ts: _tsInstance }: TransformerExtras) {
-    const onlyDecorated = pluginConfig.onlyDecorated || true;
+    const onlyDecorated = pluginConfig.hasOwnProperty('onlyDecorated') ? pluginConfig.onlyDecorated : true;
     return (ctx: ts.TransformationContext) => {
         const { factory } = ctx;
         let hasImportReflectMetadata = false;
