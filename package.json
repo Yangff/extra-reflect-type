@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Yangff/extra-reflect-type.git"
+    "url": "git+https://github.com/Yangff/extra-reflect-type.git"
   },
   "readme": "README.md",
   "version": "1.0.0",
