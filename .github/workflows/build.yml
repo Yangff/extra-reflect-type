@@ -37,7 +37,7 @@ jobs:
         name: Release v${{ steps.version.outputs.version }}
         artifacts: "dist/*,src/*,package.json,README.md,tsconfig.json,tsconfig-cjs.json,.eslintrc.js"
         tag: v${{ steps.version.outputs.version }}
-        token: ${{ secrets.YOUR_GITHUB_TOKEN }}
+        token: ${{ secrets.RELEASE_TOKEN }}
     - name: Publish to npm
       run: npm publish
       env:
