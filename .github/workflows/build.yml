@@ -24,7 +24,7 @@ jobs:
         scheme: semver
         increment: patch
     - name: Update package.json
-      run: npm version ${{ steps.version.outputs.version }} --allow-same-version
+      run: npm version ${{ steps.version.outputs.version }} --no-git-tag-version --allow-same-version
     - name: Install dependencies
       run: npm install
     - name: Build
