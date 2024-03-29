@@ -8,7 +8,8 @@ on:
 jobs:
   build_test_publish:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -37,7 +38,6 @@ jobs:
         name: Release v${{ steps.version.outputs.version }}
         artifacts: "dist/*,src/*,package.json,README.md,tsconfig.json,tsconfig-cjs.json,.eslintrc.js"
         tag: v${{ steps.version.outputs.version }}
-        token: ${{ secrets.RELEASE_TOKEN }}
     - name: Publish to npm
       run: npm publish
       env:
