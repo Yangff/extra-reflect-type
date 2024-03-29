@@ -33,12 +33,11 @@ jobs:
       run: npm test
     - name: Create a Release
       uses: ncipollo/release-action@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
         name: Release v${{ steps.version.outputs.version }}
         artifacts: "dist/*,src/*,package.json,README.md,tsconfig.json,tsconfig-cjs.json,.eslintrc.js"
         tag: v${{ steps.version.outputs.version }}
+        token: ${{ secrets.YOUR_GITHUB_TOKEN }}
     - name: Publish to npm
       run: npm publish
       env:
