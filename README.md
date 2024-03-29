@@ -1,5 +1,7 @@
 # TypeScript Extra Reflection Transformer
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js CI/CD Workflow](https://github.com/Yangff/extra-reflect-type/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Yangff/extra-reflect-type/actions/workflows/build.yml)
+[![npm version](https://badge.fury.io/js/extra-reflect-type.svg)](https://badge.fury.io/js/extra-reflect-type)
 
 This TypeScript library provides a custom transformer for TypeScript, aimed at enhancing the TypeScript compilation process with additional type transformations. It utilizes the TypeScript compiler API to inspect and modify the AST during the compilation phase, enabling advanced type manipulation and metadata reflection capabilities.
 
