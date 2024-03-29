@@ -23,6 +23,18 @@ jobs:
       run: npm run build
     - name: Test
       run: npm test
+    - name: Get next version
+      uses: reecetech/version-increment@2023.9.3
+      id: version
+      with:
+        scheme: semver
+        increment: patch
+    - name: Tag current commit
+      run: git tag -a v${{ steps.version.outputs.version }} -m "Release v${{ steps.version.outputs.version }}"
+    - name: Push tag to GitHub
+      run: git push origin v${{ steps.version.outputs.version }}
+    - name: Update package.json
+      run: npm version ${{ steps.version.outputs.version }} --allow-same-version
     - name: Publish to npm
       run: npm publish
       env:
